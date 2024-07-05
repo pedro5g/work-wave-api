@@ -27,7 +27,7 @@ model User {
 
 model Shipping {
   id    String @id @default(cuid())
-  metod String
+  metod String @unique
 
   @@map("shippings")
 }
