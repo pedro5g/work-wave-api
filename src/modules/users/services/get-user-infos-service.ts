@@ -1,12 +1,12 @@
 import { NotFoundError } from '@shared/errors/error'
-import { IGetUserInfos } from '@users/domain/models/user-interfaces'
+import { IGetUserInfos } from '@users/domain/models/user-model'
 import { IUserRepository } from '@users/domain/repositories/IUser-repository'
 
 export class GetUserInfosServices {
   constructor(private readonly repository: IUserRepository) {}
 
   async get({ userId }: IGetUserInfos) {
-    const findUser = await this.repository.findUserById(userId)
+    const findUser = await this.repository.findUserById({ userId })
 
     if (!findUser) {
       throw new NotFoundError('User not found')

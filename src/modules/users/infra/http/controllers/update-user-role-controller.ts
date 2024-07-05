@@ -1,5 +1,5 @@
 import { NotFoundError } from '@shared/errors/error'
-import { updateUserRole } from '@users/services/factory'
+import { updateUserRole } from '@users/infra/factory'
 import { NextFunction, Request, Response } from 'express'
 
 import z from 'zod'

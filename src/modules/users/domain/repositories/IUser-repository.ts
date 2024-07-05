@@ -1,9 +1,16 @@
-import { IRegisterUser, IUpdateRole, IUser } from '../models/user-interfaces'
+import {
+  IFindUserByEmail,
+  IFindUserById,
+  IRegisterUser,
+  IUpdateRole,
+  User,
+  UserResponse,
+} from '../models/user-model'
 
 export interface IUserRepository {
-  findUserByEmail(email: string): Promise<IUser | null>
-  findUserById(userId: string): Promise<IUser | null>
-  registerUser(user: IRegisterUser): Promise<void>
-  updateUserRole(user: IUpdateRole): Promise<void>
-  getAllUsers(): Promise<IUser[]>
+  findUserByEmail(data: IFindUserByEmail): Promise<User | null>
+  findUserById(data: IFindUserById): Promise<User | null>
+  registerUser(data: IRegisterUser): Promise<void>
+  updateUserRole(data: IUpdateRole): Promise<void>
+  getAllUsers(): Promise<UserResponse[]>
 }

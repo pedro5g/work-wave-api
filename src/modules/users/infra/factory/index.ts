@@ -1,10 +1,10 @@
-import { PrismaUserRepository } from '@users/infra/repositories/prisma-user-repository'
-import { RegisterUserService } from '../register-user-service'
-import { AuthenticationService } from '../authentication-service'
-import { GetUserInfosServices } from '../get-user-infos-service'
-import { RefreshTokenService } from '../refresh-token-service'
-import { UpdateUserRoleService } from '../update-user-role-service'
-import { GetAllRegisteredUsersService } from '../get-all-registered-users-service'
+import { PrismaUserRepository } from '../repositories/prisma-user-repository'
+import { RegisterUserService } from '@users/services/register-user-service'
+import { AuthenticationService } from '@users/services/authentication-service'
+import { GetUserInfosServices } from '@users/services/get-user-infos-service'
+import { RefreshTokenService } from '@users/services/refresh-token-service'
+import { UpdateUserRoleService } from '@users/services/update-user-role-service'
+import { GetAllRegisteredUsersService } from '@users/services/get-all-registered-users-service'
 
 const userRepository = new PrismaUserRepository()
 

@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
 
-import { getUserInfos } from '@users/services/factory'
+import { getUserInfos } from '@users/infra/factory'
 import { NotFoundError } from '@shared/errors/error'
 
 export class GetUserInfoController {

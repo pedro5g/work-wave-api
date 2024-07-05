@@ -1,7 +1,7 @@
 import { env } from '@shared/env'
 import { AuthenticationError } from '@shared/errors/error'
 import { comparePasswords } from '@shared/lib/helpers'
-import { IAuthentication } from '@users/domain/models/user-interfaces'
+import { IAuthentication } from '@users/domain/models/user-model'
 import { IUserRepository } from '@users/domain/repositories/IUser-repository'
 import jwt from 'jsonwebtoken'
 
@@ -9,7 +9,7 @@ export class AuthenticationService {
   constructor(private readonly repository: IUserRepository) {}
 
   async login({ email, password }: IAuthentication) {
-    const findUser = await this.repository.findUserByEmail(email)
+    const findUser = await this.repository.findUserByEmail({ email })
 
     if (!findUser) {
       throw new AuthenticationError()

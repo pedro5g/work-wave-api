@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import { register } from '@users/services/factory'
+import { register } from '@users/infra/factory'
 import { z } from 'zod'
 import { ValidationError } from '@shared/errors/error'
 

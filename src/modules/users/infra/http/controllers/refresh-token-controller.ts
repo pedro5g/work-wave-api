@@ -1,5 +1,5 @@
 import { NotFoundError } from '@shared/errors/error'
-import { getRefreshToken } from '@users/services/factory'
+import { getRefreshToken } from '@users/infra/factory'
 import { Request, Response } from 'express'
 
 export class RefreshTokenController {

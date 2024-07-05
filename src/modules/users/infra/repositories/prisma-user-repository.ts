@@ -1,9 +1,12 @@
 import { prisma } from '@shared/lib/prisma'
 import {
+  IFindUserByEmail,
+  IFindUserById,
   IRegisterUser,
   IUpdateRole,
-  IUser,
-} from '@users/domain/models/user-interfaces'
+  User,
+  UserResponse,
+} from '@users/domain/models/user-model'
 import { IUserRepository } from '@users/domain/repositories/IUser-repository'
 
 export class PrismaUserRepository implements IUserRepository {
@@ -13,46 +16,45 @@ export class PrismaUserRepository implements IUserRepository {
     })
   }
 
-  async updateUserRole(user: IUpdateRole): Promise<void> {
+  async updateUserRole({ role, userId }: IUpdateRole): Promise<void> {
     await prisma.user.update({
       where: {
-        id: user.userId,
+        id: userId,
       },
       data: {
-        role: user.role,
+        role,
       },
     })
   }
 
-  async findUserByEmail(email: string): Promise<IUser | null> {
+  async findUserByEmail({ email }: IFindUserByEmail): Promise<User | null> {
     const findUser = await prisma.user.findUnique({
       where: {
         email,
       },
     })
 
-    if (!findUser) {
-      return null
-    }
-
     return findUser
   }
 
-  async findUserById(userId: string): Promise<IUser | null> {
+  async findUserById({ userId }: IFindUserById): Promise<User | null> {
     const findUser = await prisma.user.findUnique({
       where: {
         id: userId,
       },
     })
 
-    if (!findUser) {
-      return null
-    }
-
     return findUser
   }
-  async getAllUsers(): Promise<IUser[]> {
-    const users = await prisma.user.findMany()
+  async getAllUsers(): Promise<UserResponse[]> {
+    const users = await prisma.user.findMany({
+      select: {
+        id: true,
+        name: true,
+        email: true,
+        role: true,
+      },
+    })
     return users
   }
 }

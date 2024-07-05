@@ -1,5 +1,5 @@
+import { getAllRegisteredUsers } from '@users/infra/factory'
 import { Request, Response } from 'express'
-import { getAllRegisteredUsers } from '@users/services/factory'
 
 export class GetAllRegisteredUsersController {
   public async get(_request: Request, response: Response) {

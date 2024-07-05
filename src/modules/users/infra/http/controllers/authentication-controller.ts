@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import { authentication } from '@users/services/factory'
+import { authentication } from '@users/infra/factory'
 import { z } from 'zod'
 import { AuthenticationError } from '@shared/errors/error'
 

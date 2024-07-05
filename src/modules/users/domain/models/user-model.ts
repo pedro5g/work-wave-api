@@ -1,4 +1,7 @@
-export interface IUser {
+import { unknown } from 'zod'
+import { Roles } from './roles'
+
+export type User = {
   id: string
   name: string
   email: string
@@ -7,9 +10,12 @@ export interface IUser {
   role: string
 }
 
-export type IUserResponse = Omit<IUser, 'password' | 'registeredAt'>
-
-export type Roles = 'ADMIN' | 'USER'
+export type UserResponse = {
+  id: string
+  name: string
+  email: string
+  role: string
+}
 
 export interface IRegisterUser {
   name: string
@@ -30,4 +36,11 @@ export interface IAuthentication {
 
 export interface IGetUserInfos {
   userId: string
+}
+
+export interface IFindUserById {
+  userId: string
+}
+export interface IFindUserByEmail {
+  email: string
 }

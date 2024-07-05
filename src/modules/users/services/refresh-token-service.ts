@@ -7,7 +7,7 @@ export class RefreshTokenService {
   constructor(private readonly repository: IUserRepository) {}
 
   async refresh(userId: string) {
-    const findUser = await this.repository.findUserById(userId)
+    const findUser = await this.repository.findUserById({ userId })
 
     if (!findUser) {
       throw new NotFoundError('User not found')
