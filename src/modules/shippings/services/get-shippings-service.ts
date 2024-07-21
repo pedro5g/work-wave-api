@@ -1,4 +1,4 @@
-import { IShippingRepository } from '../domain/repositories/IShippings-repository'
+import { IShippingRepository } from '@shippings/domain/repositories/IShippings-repository'
 
 export class GetShippingsService {
   constructor(private readonly repository: IShippingRepository) {}

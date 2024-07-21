@@ -1,8 +1,8 @@
-import { CreateShippingService } from '../../services/create-shipping-service'
-import { DeleteShippingService } from '../../services/delete-shipping-service'
-import { FindShippingService } from '../../services/find-shipping-service'
-import { GetShippingsService } from '../../services/get-shippings-service'
+import { CreateShippingService } from '@shippings/services/create-shipping-service'
 import { ShippingRepository } from '../repositories/prisma-shipping-repository'
+import { DeleteShippingService } from '@shippings/services/delete-shipping-service'
+import { FindShippingService } from '@shippings/services/find-shipping-service'
+import { GetShippingsService } from '@shippings/services/get-shippings-service'
 
 const repository = new ShippingRepository()
 

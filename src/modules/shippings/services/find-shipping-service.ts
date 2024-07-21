@@ -1,6 +1,6 @@
 import { NotFoundError } from '@shared/errors/error'
-import { IFindShippingById } from '../domain/models/shipping-model'
-import { IShippingRepository } from '../domain/repositories/IShippings-repository'
+import { IFindShippingById } from '@shippings/domain/models/shipping-model'
+import { IShippingRepository } from '@shippings/domain/repositories/IShippings-repository'
 
 export class FindShippingService {
   constructor(private readonly repository: IShippingRepository) {}

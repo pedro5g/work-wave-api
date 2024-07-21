@@ -1,6 +1,6 @@
 import { ValidationError } from '@shared/errors/error'
-import { ICreateShipping } from '../domain/models/shipping-model'
-import { IShippingRepository } from '../domain/repositories/IShippings-repository'
+import { ICreateShipping } from '@shippings/domain/models/shipping-model'
+import { IShippingRepository } from '@shippings/domain/repositories/IShippings-repository'
 
 export class CreateShippingService {
   constructor(private readonly repository: IShippingRepository) {}

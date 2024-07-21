@@ -1,7 +1,8 @@
 import { Request, Response } from 'express'
 import { z } from 'zod'
-import { deleteShipping } from '../../factory'
+
 import { NotFoundError } from '@shared/errors/error'
+import { deleteShipping } from '@shippings/infra/factory'
 
 export class DeleteShippingController {
   async delete(request: Request, response: Response) {

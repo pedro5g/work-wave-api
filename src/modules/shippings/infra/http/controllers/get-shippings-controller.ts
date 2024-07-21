@@ -1,5 +1,5 @@
+import { getShippings } from '@shippings/infra/factory'
 import { Request, Response } from 'express'
-import { getShippings } from '../../factory'
 
 export class GetShippingsController {
   async getAll(request: Request, response: Response) {

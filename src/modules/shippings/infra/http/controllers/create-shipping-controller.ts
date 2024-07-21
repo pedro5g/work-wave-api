@@ -1,7 +1,8 @@
 import { Request, Response } from 'express'
 import { z } from 'zod'
-import { createShipping } from '../../factory'
+
 import { ValidationError } from '@shared/errors/error'
+import { createShipping } from '@shippings/infra/factory'
 
 export class CreateShippingController {
   async create(request: Request, response: Response) {

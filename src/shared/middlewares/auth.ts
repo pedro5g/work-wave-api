@@ -1,11 +1,6 @@
 import { env } from '@shared/env'
 import { Request, Response, NextFunction } from 'express'
 import jwt from 'jsonwebtoken'
-type JwtPayloadProps = {
-  id: string
-  name: string
-  role: string
-}
 
 export const authMiddleware = (
   request: Request,
@@ -19,14 +14,18 @@ export const authMiddleware = (
       token,
       env.ACCESS_TOKEN_SECRET,
 
+      {},
       (error, decode) => {
         if (error) {
           return response.status(403).json({
             message: 'Token is not valid',
           })
-        } else {
+        } else if (
+          typeof decode === 'object' &&
+          typeof decode.sub === 'object'
+        ) {
           const { sub } = decode
-          request.user = sub as unknown as JwtPayloadProps
+          request.user = sub
           next()
         }
       },

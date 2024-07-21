@@ -5,8 +5,8 @@ import {
   IFindShippingById,
   IFindShippingByMetod,
   IShipping,
-} from '../../domain/models/shipping-model'
-import { IShippingRepository } from '../../domain/repositories/IShippings-repository'
+} from '@shippings/domain/models/shipping-model'
+import { IShippingRepository } from '@shippings/domain/repositories/IShippings-repository'
 
 export class ShippingRepository implements IShippingRepository {
   async createShipping(data: ICreateShipping): Promise<void> {

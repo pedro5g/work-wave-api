@@ -1,6 +1,6 @@
 import { NotFoundError } from '@shared/errors/error'
-import { IDeleteShipping } from '../domain/models/shipping-model'
-import { IShippingRepository } from '../domain/repositories/IShippings-repository'
+import { IDeleteShipping } from '@shippings/domain/models/shipping-model'
+import { IShippingRepository } from '@shippings/domain/repositories/IShippings-repository'
 
 export class DeleteShippingService {
   constructor(private readonly repository: IShippingRepository) {}
