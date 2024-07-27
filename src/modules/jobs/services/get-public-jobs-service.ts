@@ -10,6 +10,6 @@ export class GetPublicJobsService {
       lastCursor,
     })
 
-    return { jobsList }
+    return jobsList
   }
 }

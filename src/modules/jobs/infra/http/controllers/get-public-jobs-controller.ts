@@ -11,8 +11,8 @@ export class GetPublicJobsController {
 
     const { take, lastCursor } = querySchema.parse(request.query)
 
-    const jobs = await getPublicJobs.get({ take, lastCursor })
+    const jobsList = await getPublicJobs.get({ take, lastCursor })
 
-    return response.status(202).json({ jobs: jobs })
+    return response.status(202).json({ jobsList })
   }
 }
